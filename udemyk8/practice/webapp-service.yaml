@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+        name: fleetman-queue-service
+        
+
+spec:
+        # Which Pods are to be represented by this service
+        selector:
+                app: webapp1
+                # If we want external world to see this service we use type os Node Port , 
+                # If We want that Service is accescible only inside Cluster we use type as Cluster IP
+        type: NodePort
+
+        ports:
+                - name: http
+                  # This port is the port which is inside container which developer has exposed
+                  port: 8161
+                  # This port is opened in Pod 
+                  targetPort: 8161
+                  #This is port to which Service Listens
+                           
+                
+                 
+                
+                  
+                  
+                  nodePort: 30082 
